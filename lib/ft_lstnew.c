@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 15:27:49 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/22 15:56:35 by bdjoco           ###   ########.fr       */
+/*   Created: 2025/05/05 19:21:56 by bdjoco            #+#    #+#             */
+/*   Updated: 2025/05/22 14:15:49 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap(t_list *lst)
+t_list	*ft_lstnew(int val)
 {
-	int		val;
-	t_list	*nlst;
+	t_list	*lst;
 
-	if (!lst || ft_lstsize(lst) < 2)
-		return (0);
-	else
-	{
-		nlst = lst->next;
-		val = lst->val;
-		lst->val = nlst->val;
-		nlst->val = val;
-	}
-}
-
-void	push(t_list *src, t_list *dest)
-{
-	t_list	*tmp_src;
-	t_list	*tmp_dest;
+	lst = malloc(sizeof(t_list));
+	if (!lst)
+		return (NULL);
+	lst->val = val;
+	lst->next = NULL;
+	return (lst);
 }

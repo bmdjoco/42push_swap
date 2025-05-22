@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 15:27:49 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/22 15:56:35 by bdjoco           ###   ########.fr       */
+/*   Created: 2025/05/05 19:45:10 by bdjoco            #+#    #+#             */
+/*   Updated: 2025/05/22 13:36:36 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap(t_list *lst)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int		val;
-	t_list	*nlst;
+	t_list	*last;
 
-	if (!lst || ft_lstsize(lst) < 2)
-		return (0);
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+		*lst = new;
 	else
 	{
-		nlst = lst->next;
-		val = lst->val;
-		lst->val = nlst->val;
-		nlst->val = val;
+		last = ft_lstlast(*lst);
+		last->next = new;
 	}
-}
-
-void	push(t_list *src, t_list *dest)
-{
-	t_list	*tmp_src;
-	t_list	*tmp_dest;
 }

@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 15:27:49 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/22 15:56:35 by bdjoco           ###   ########.fr       */
+/*   Created: 2025/05/05 20:01:54 by bdjoco            #+#    #+#             */
+/*   Updated: 2025/05/22 13:46:18 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap(t_list *lst)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	int		val;
-	t_list	*nlst;
+	t_list	*tmp;
 
-	if (!lst || ft_lstsize(lst) < 2)
-		return (0);
-	else
+	tmp = lst;
+	while (tmp)
 	{
-		nlst = lst->next;
-		val = lst->val;
-		lst->val = nlst->val;
-		nlst->val = val;
+		f(tmp->val);
+		tmp = tmp->next;
 	}
-}
-
-void	push(t_list *src, t_list *dest)
-{
-	t_list	*tmp_src;
-	t_list	*tmp_dest;
 }

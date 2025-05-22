@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 15:27:49 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/22 15:56:35 by bdjoco           ###   ########.fr       */
+/*   Created: 2025/05/05 19:55:26 by bdjoco            #+#    #+#             */
+/*   Updated: 2025/05/22 13:36:30 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap(t_list *lst)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int		val;
-	t_list	*nlst;
+	t_list	*tmp;
 
-	if (!lst || ft_lstsize(lst) < 2)
-		return (0);
-	else
+	while (*lst)
 	{
-		nlst = lst->next;
-		val = lst->val;
-		lst->val = nlst->val;
-		nlst->val = val;
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
 	}
-}
-
-void	push(t_list *src, t_list *dest)
-{
-	t_list	*tmp_src;
-	t_list	*tmp_dest;
+	free(*lst);
+	*lst = NULL;
 }

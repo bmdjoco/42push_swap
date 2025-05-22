@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   ft_lstchoose.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 15:27:49 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/22 15:56:35 by bdjoco           ###   ########.fr       */
+/*   Created: 2025/05/22 15:21:41 by bdjoco            #+#    #+#             */
+/*   Updated: 2025/05/22 15:22:52 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap(t_list *lst)
+t_list	*ft_lstchoose(t_list *lst, int nb)
 {
-	int		val;
-	t_list	*nlst;
+	t_list	*tmp;
+	int		i;
 
-	if (!lst || ft_lstsize(lst) < 2)
-		return (0);
-	else
+	if (!lst)
+		return (NULL);
+	tmp = lst;
+	i = 0;
+	while (tmp->next && i < nb)
 	{
-		nlst = lst->next;
-		val = lst->val;
-		lst->val = nlst->val;
-		nlst->val = val;
+		tmp = tmp->next;
+		i++;
 	}
-}
-
-void	push(t_list *src, t_list *dest)
-{
-	t_list	*tmp_src;
-	t_list	*tmp_dest;
+	return (tmp);
 }

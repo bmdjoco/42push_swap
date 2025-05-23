@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 19:55:26 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/23 11:07:50 by bdjoco           ###   ########.fr       */
+/*   Created: 2025/05/01 13:35:42 by bdjoco            #+#    #+#             */
+/*   Updated: 2025/05/23 11:31:19 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_lstclear(t_list **lst)
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_list	*tmp;
+	size_t	i;
 
-	while (*lst)
+	i = 0;
+	while (s[i])
 	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst);
-		*lst = tmp;
+		ft_putchar_fd(s[i], fd);
+		i++;
 	}
-	free(*lst);
-	*lst = NULL;
+}
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
 }

@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   sort_func_last.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 19:55:26 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/23 11:07:50 by bdjoco           ###   ########.fr       */
+/*   Created: 2025/05/23 11:50:44 by bdjoco            #+#    #+#             */
+/*   Updated: 2025/05/23 11:51:03 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_lstclear(t_list **lst)
+void	rrr(t_list *lst_a, t_list *lst_b)
 {
-	t_list	*tmp;
-
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst);
-		*lst = tmp;
-	}
-	free(*lst);
-	*lst = NULL;
+	rra(lst_a);
+	rrb(lst_b);
 }

@@ -6,14 +6,14 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 19:52:55 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/22 13:47:00 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/23 11:06:49 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_list *lst)
 {
-	del(lst->val);
+	lst->val = 0;
 	free(lst);
 }

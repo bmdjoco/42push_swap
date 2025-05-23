@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 14:53:55 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/23 15:02:03 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/23 15:44:26 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ t_list	*fill_number(int *tab)
 	while (i < size)
 	{
 		save->next = ft_lstnew(tab[i + 1]);
+		if (!save)
+			return (ft_lstclear(&lst), NULL);
+		save = save->next;
 		i++;
 	}
 	return (lst);

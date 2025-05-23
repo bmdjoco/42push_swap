@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:50:44 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/23 11:51:03 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/23 12:01:46 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ void	rrr(t_list *lst_a, t_list *lst_b)
 {
 	rra(lst_a);
 	rrb(lst_b);
+	ft_putstr_fd("rrr\n", 1);
 }

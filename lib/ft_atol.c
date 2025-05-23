@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 13:10:12 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/23 15:24:16 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/23 15:24:57 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	ft_isspace(char c)
+static long int	ft_isspace(char c)
 {
 	if ((c >= '\t' && c <= '\r') || c == ' ')
 		return (1);
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+long int	ft_atol(const char *str)
 {
-	int	i;
-	int	res;
-	int	sign;
+	long int	i;
+	long int	res;
+	long int	sign;
 
 	i = 0;
 	res = 0;

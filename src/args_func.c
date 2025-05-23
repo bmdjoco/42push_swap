@@ -1,0 +1,116 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   args_func.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/23 12:59:51 by bdjoco            #+#    #+#             */
+/*   Updated: 2025/05/23 15:12:20 by bdjoco           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../push_swap.h"
+
+static int	check_args_bis(int	ac, const char **av)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < ac)
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			if (!ft_isdigit(av[i][j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	check_args(int	ac, const char **av)
+{
+	int	i;
+
+	i = 0;
+	if (ac == 2)
+		while (av[1][i])
+		{
+			if (!ft_isdigit(av[1][i]))
+				return (0);
+			while (av[1][i] && ft_isdigit(av[1][i]))
+				i++;
+			if(av[1][i] && av[1][i] == ' ')
+				i++;
+			i++;
+		}
+	else
+	{
+		if (!check_args_bis(ac, av))
+			return (0);
+	}
+	return (1);
+}
+
+int	*args_isstring(const char **av)
+{
+	char	**str_lst;
+	int		*tab;
+	int		l;
+	int		i;
+
+	i = 0;
+	l = 1;
+	while (av[1][i++])
+		if (av[1][i] == ' ')
+			l++;
+	tab = (int *)malloc(sizeof(int) * (l + 1));
+	if (!tab)
+		return (NULL);
+	tab[0] = l;
+	str_lst = ft_split(av[1], ' ');
+	if (!str_lst)
+		return (NULL);
+	i = 0;
+	while (str_lst[i])
+	{
+		tab[i + 1] = ft_atoi(str_lst[i]);
+		i++;
+	}
+
+	return (tab);
+}
+
+int	*args_isarray(int	ac, const char **av)
+{
+	int	*tab;
+	int	i;
+
+	tab = (int *)malloc(sizeof(int) * (ac));
+	if (!tab)
+		return (NULL);
+	tab[0] = ac - 1;
+	i = 0;
+	while (i < ac - 1)
+	{
+		tab[i + 1] = ft_atoi(av[i + 1]);
+		i++;
+	}
+	return (tab);
+}
+
+int	*get_number_tab(int	ac, const char **av)
+{
+	int	*tab;
+	if (ac == 2)
+		tab = args_isstring(av);
+	else
+		tab = args_isarray(ac, av);
+	if (!tab)
+		return (NULL);
+	return (tab);
+}

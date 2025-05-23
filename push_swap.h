@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/23 11:51:24 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/23 15:11:33 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,13 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-int		ft_atoi(char *str);
+int		ft_isdigit(int c);
+int		ft_atoi(const char *str);
 int		ft_lstsize(t_list *lst);
+int		*args_isstring(const char **av);
+int		check_args(int	ac, const char **av);
+int		*args_isarray(int	ac, const char **av);
+int		*get_number_tab(int	ac, const char **av);
 
 void	sa(t_list *lst_a);
 void	sb(t_list *lst_b);
@@ -50,10 +55,11 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
-char	**ft_split(char *s, char c);
+char	**ft_split(const char *s, char c);
 
 t_list	*ft_lstnew(int val);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstchoose(t_list *lst, int nb);
+t_list	*fill_number(int *tab);
 
 #endif

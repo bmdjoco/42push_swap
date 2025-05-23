@@ -6,13 +6,13 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 13:09:50 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/21 15:23:10 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/23 15:09:37 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	getnbw(char *s, char sep)
+static int	getnbw(const char *s, char sep)
 {
 	int	i;
 	int	words;
@@ -31,7 +31,7 @@ static int	getnbw(char *s, char sep)
 	return (words);
 }
 
-static char	*alloc_word(char *str, char sep)
+static char	*alloc_word(const char *str, char sep)
 {
 	int		i;
 	int		len;
@@ -64,7 +64,7 @@ static void	*free_words(char **words, int j)
 	return (NULL);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	char	**res;
 	int		i;

@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   args_func_bis.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 20:04:32 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/22 14:16:08 by bdjoco           ###   ########.fr       */
+/*   Created: 2025/05/23 14:53:55 by bdjoco            #+#    #+#             */
+/*   Updated: 2025/05/23 15:02:03 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*fill_number(int *tab)
 {
-	t_list	*n_lst;
-	t_list	*n_obj;
-	int		val;
+	int		i;
+	int		size;
+	t_list	*lst;
+	t_list	*save;
 
-	if (!lst || !f || !del)
-		return (NULL);
-	n_lst = NULL;
-	while (lst)
+	size = tab[0];
+	if (size < 1)
+	return (NULL);
+	lst = ft_lstnew(tab[1]);
+	save = lst;
+	i = 1;
+	while (i < size)
 	{
-		val = f(lst->val);
-		n_obj = ft_lstnew(val);
-		if (!n_obj)
-		{
-			del(val);
-			ft_lstclear(&n_lst, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&n_lst, n_obj);
-		lst = lst->next;
+		save->next = ft_lstnew(tab[i + 1]);
+		i++;
 	}
-	return (n_lst);
+	return (lst);
 }

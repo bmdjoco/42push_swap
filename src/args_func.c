@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:59:51 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/23 15:12:20 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/24 13:40:09 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static int	check_args_bis(int	ac, const char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			if (!ft_isdigit(av[i][j]))
+			if (!ft_isdigit(av[i][j])
+				&& (j != 0 && av[i][j] == '-'))
 				return (0);
 			j++;
 		}
@@ -40,7 +41,9 @@ int	check_args(int	ac, const char **av)
 	if (ac == 2)
 		while (av[1][i])
 		{
-			if (!ft_isdigit(av[1][i]))
+			if (i == 0 && av[1][i] == '-')
+				i++;
+			else if (!ft_isdigit(av[1][i]))
 				return (0);
 			while (av[1][i] && ft_isdigit(av[1][i]))
 				i++;
@@ -69,19 +72,19 @@ int	*args_isstring(const char **av)
 		if (av[1][i] == ' ')
 			l++;
 	tab = (int *)malloc(sizeof(int) * (l + 1));
-	if (!tab)
+	str_lst = ft_split(av[1], ' ');
+	if (!tab || !str_lst)
 		return (NULL);
 	tab[0] = l;
-	str_lst = ft_split(av[1], ' ');
-	if (!str_lst)
-		return (NULL);
 	i = 0;
 	while (str_lst[i])
 	{
+		if (ft_atol(av[i + 1]) > 2147483647
+			|| ft_atol(av[i + 1]) < -2147483648)
+			return (NULL);
 		tab[i + 1] = ft_atoi(str_lst[i]);
 		i++;
 	}
-
 	return (tab);
 }
 
@@ -97,6 +100,9 @@ int	*args_isarray(int	ac, const char **av)
 	i = 0;
 	while (i < ac - 1)
 	{
+		if (ft_atol(av[i + 1]) > 2147483647
+			|| ft_atol(av[i + 1]) < -2147483648)
+			return (NULL);
 		tab[i + 1] = ft_atoi(av[i + 1]);
 		i++;
 	}

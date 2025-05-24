@@ -6,11 +6,12 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:59:51 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/24 13:40:09 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/24 15:25:16 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
 
 static int	check_args_bis(int	ac, const char **av)
 {
@@ -39,17 +40,17 @@ int	check_args(int	ac, const char **av)
 
 	i = 0;
 	if (ac == 2)
-		while (av[1][i])
+		while (av[1][i] != '\0')
 		{
-			if (i == 0 && av[1][i] == '-')
+			/*if ((i == 0 || av[1][i - 1] == ' ')
+				&& av[1][i] == '-')
 				i++;
-			else if (!ft_isdigit(av[1][i]))
-				return (0);
-			while (av[1][i] && ft_isdigit(av[1][i]))
+			else */if (!ft_isdigit(av[1][i]))
+				return (printf("le char '%c' le numero '%d'\n", av[1][i], i), 0);
+			while (ft_isdigit(av[1][i]))
 				i++;
-			if(av[1][i] && av[1][i] == ' ')
+			if(av[1][i] == ' ')
 				i++;
-			i++;
 		}
 	else
 	{
@@ -71,6 +72,7 @@ int	*args_isstring(const char **av)
 	while (av[1][i++])
 		if (av[1][i] == ' ')
 			l++;
+	printf("il y a %d nombres\n", l);
 	tab = (int *)malloc(sizeof(int) * (l + 1));
 	str_lst = ft_split(av[1], ' ');
 	if (!tab || !str_lst)
@@ -83,6 +85,7 @@ int	*args_isstring(const char **av)
 			|| ft_atol(av[i + 1]) < -2147483648)
 			return (NULL);
 		tab[i + 1] = ft_atoi(str_lst[i]);
+		printf("la chaine '%s' = %d\n", str_lst[i], tab[i + 1]);
 		i++;
 	}
 	return (tab);

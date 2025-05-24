@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/24 13:28:15 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/24 14:18:03 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ void		rra(t_list *lst_a);
 void		rrb(t_list *lst_b);
 void		rotate(t_list *lst);
 void		rotate_rev(t_list *lst);
+void		print_list(t_list *lst);
 void		ft_lstdelone(t_list *lst);
 void		ft_lstclear(t_list **lst);
+void		ft_putnbr_fd(int n, int fd);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		push(t_list *src, t_list *dest);

@@ -6,12 +6,11 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 14:53:55 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/24 13:23:43 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/24 14:40:19 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
 static int	nb_rec(int *tab, int nbr)
 {

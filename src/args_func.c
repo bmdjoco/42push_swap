@@ -6,13 +6,20 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:59:51 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/25 19:54:09 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/26 15:03:47 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
+/**
+ * @brief Verifie si si les argumet sont valid
+ *
+ * @param {int} ac
+ * @param {const char**} av
+ *
+ * @return {int} valid ou non
+ */
 static int	check_args_bis(int	ac, const char **av)
 {
 	int	i;
@@ -34,6 +41,14 @@ static int	check_args_bis(int	ac, const char **av)
 	return (1);
 }
 
+/**
+ * @brief Verifie si si les argumet sont valid
+ *
+ * @param {int} ac
+ * @param {const char**} av
+ *
+ * @return {int} valid ou non
+ */
 int	check_args(int	ac, const char **av)
 {
 	int	i;
@@ -82,12 +97,13 @@ int	*args_isstring(const char **av)
 			|| ft_atol(str_lst[i]) < -2147483648)
 			return (NULL);
 		tab[i + 1] = ft_atoi(str_lst[i]);
+		free(str_lst[i]);
 		i++;
 	}
-	return (tab);
+	return (free(str_lst), tab);
 }
 
-int	*args_isarray(int	ac, const char **av)
+int	*args_isarray(int ac, const char **av)
 {
 	int	*tab;
 	int	i;
@@ -108,7 +124,7 @@ int	*args_isarray(int	ac, const char **av)
 	return (tab);
 }
 
-int	*get_number_tab(int	ac, const char **av)
+int	*get_number_tab(int ac, const char **av)
 {
 	int	*tab;
 	if (ac == 2)

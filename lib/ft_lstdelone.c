@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 19:52:55 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/23 11:06:49 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/26 14:03:00 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_lstdelone(t_list *lst)
 {
-	lst->val = 0;
+	free(&lst->val);
 	free(lst);
 }

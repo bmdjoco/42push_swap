@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/24 14:18:03 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/26 10:39:00 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int			*get_number_tab(int	ac, const char **av);
 
 long int	ft_atol(const char *str);
 
+void		sort(t_list	*lst_a);
 void		sa(t_list *lst_a);
 void		sb(t_list *lst_b);
 void		swap(t_list *lst);
@@ -44,7 +45,6 @@ void		rra(t_list *lst_a);
 void		rrb(t_list *lst_b);
 void		rotate(t_list *lst);
 void		rotate_rev(t_list *lst);
-void		print_list(t_list *lst);
 void		ft_lstdelone(t_list *lst);
 void		ft_lstclear(t_list **lst);
 void		ft_putnbr_fd(int n, int fd);

@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:27:49 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/24 14:18:55 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/26 10:39:35 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,4 @@ void	rotate_rev(t_list *lst)
 	ft_lstadd_front(&lst, tmp);
 	tmp = ft_lstlast(lst);
 	ft_lstdelone(tmp);
-}
-
-void	print_list(t_list *lst)
-{
-	t_list	*tmp;
-
-	tmp = lst;
-	while (tmp)
-	{
-		ft_putstr_fd("| ", 1);
-		ft_putnbr_fd(tmp->val, 1);
-		ft_putstr_fd("\n", 1);
-		tmp = tmp->next;
-	}
 }

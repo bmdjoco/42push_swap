@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 14:53:55 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/24 14:40:19 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/26 23:13:45 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	have_double(int *tab)
 	}
 	return (1);
 }
-
+	
 t_list	*fill_number(int *tab)
 {
 	int		i;

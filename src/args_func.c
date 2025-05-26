@@ -6,132 +6,103 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:59:51 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/26 15:03:47 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/26 23:33:37 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/**
- * @brief Verifie si si les argumet sont valid
- *
- * @param {int} ac
- * @param {const char**} av
- *
- * @return {int} valid ou non
- */
-static int	check_args_bis(int	ac, const char **av)
+t_list	*fill_list(int argc, char **argv)
 {
-	int	i;
-	int	j;
+	t_list	*list;
+	char	**args;
+	int		i;
+	int		num;
 
 	i = 1;
-	while (i < ac)
+	if (argc == 2)
+		args = ft_split(argv[1], ' ');
+	while (argc > 2 && i < argc)
 	{
-		j = 0;
-		while (av[i][j])
-		{
-			if (!ft_isdigit(av[i][j])
-				&& (j != 0 && av[i][j] == '-'))
-				return (0);
-			j++;
-		}
+		num = ft_atoi_check(argv[i]);
+		if (!add_unique(&list, num))
+			return (free_list(&list), NULL);
 		i++;
 	}
-	return (1);
-}
-
-/**
- * @brief Verifie si si les argumet sont valid
- *
- * @param {int} ac
- * @param {const char**} av
- *
- * @return {int} valid ou non
- */
-int	check_args(int	ac, const char **av)
-{
-	int	i;
-
-	i = 0;
-	if (ac == 2)
+	if (argc == 2 && args)
 	{
-		while (av[1][i])
+		i = 0;
+		while (args[i])
 		{
-			if (av[1][i] == '-')
-				i++;
-			if (av[1][i] && !ft_isdigit(av[1][i]))
-				return (0);
-			while (av[1][i] && ft_isdigit(av[1][i]))
-				i++;
-			if (av[1][i] && av[1][i] == ' ')
-				i++;
+			num = ft_atoi_check(args[i]);
+			if (!add_unique(&list, num))
+				return (free_split(args), free_list(&list), NULL);
+			i++;
 		}
+		return (free_split(args), list);
 	}
-	else if (!check_args_bis(ac, av))
-		return (0);
-	return (1);
+	return (list);
 }
 
-int	*args_isstring(const char **av)
+int	ft_atoi_check(char *str)
 {
-	char	**str_lst;
-	int		*tab;
-	int		l;
+	long	n;
+	int		sign;
 	int		i;
 
+	n = 0;
+	sign = 1;
 	i = 0;
-	l = 1;
-	while (av[1][i++])
-		if (av[1][i] == ' ')
-			l++;
-	tab = (int *)malloc(sizeof(int) * (l + 1));
-	str_lst = ft_split(av[1], ' ');
-	if (!tab || !str_lst)
-		return (NULL);
-	tab[0] = l;
-	i = 0;
-	while (str_lst[i])
-	{
-		if (ft_atol(str_lst[i]) > 2147483647
-			|| ft_atol(str_lst[i]) < -2147483648)
-			return (NULL);
-		tab[i + 1] = ft_atoi(str_lst[i]);
-		free(str_lst[i]);
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	}
-	return (free(str_lst), tab);
+	if (str[i] == '-' || str[i] == '+')
+		if (str[i++] == '-')
+			sign = -1;
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
+		n = n * 10 + (str[i++] - '0');
+	n *= sign;
+	if (str[i] || n < -2147483648 || n > 2147483647)
+		return (2147483648);
+	return ((int)n);
 }
 
-int	*args_isarray(int ac, const char **av)
+int	add_unique(t_list **lst, int val)
 {
-	int	*tab;
+	t_list	*tmp;
+
+	tmp = *lst;
+	while (tmp)
+	{
+		if (tmp->val == val)
+			return (0);
+		tmp = tmp->next;
+	}
+	tmp = ft_lstnew(val);
+	if (!tmp)
+		return (0);
+	ft_lstadd_back(lst, tmp);
+	return (1);
+}
+
+void	free_list(t_list **lst)
+{
+	t_list	*tmp;
+
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		free(*lst);
+		*lst = tmp;
+	}
+}
+
+void	free_split(char **split)
+{
 	int	i;
 
-	tab = (int *)malloc(sizeof(int) * (ac));
-	if (!tab)
-		return (NULL);
-	tab[0] = ac - 1;
 	i = 0;
-	while (i < ac - 1)
-	{
-		if (ft_atol(av[i + 1]) > 2147483647
-			|| ft_atol(av[i + 1]) < -2147483648)
-			return (NULL);
-		tab[i + 1] = ft_atoi(av[i + 1]);
-		i++;
-	}
-	return (tab);
+	while (split[i])
+		free(split[i++]);
+	free(split);
 }
 
-int	*get_number_tab(int ac, const char **av)
-{
-	int	*tab;
-	if (ac == 2)
-		tab = args_isstring(av);
-	else
-		tab = args_isarray(ac, av);
-	if (!tab)
-		return (NULL);
-	return (tab);
-}

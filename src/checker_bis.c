@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker_bis.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 15:12:59 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/27 20:48:03 by bdjoco           ###   ########.fr       */
+/*   Created: 2025/05/28 09:58:22 by bdjoco            #+#    #+#             */
+/*   Updated: 2025/05/28 14:29:04 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
+#include "../push_swap.h"
 
-void	print_list(t_list *lst)
+char	**const_to_nonconst(int ac, const char **av)
 {
-	t_list	*tmp;
+	char	**res;
+	int		i;
 
-	tmp = lst;
-	while (tmp)
+	res = malloc(ac * sizeof(char *));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (i < ac)
 	{
-		ft_putstr_fd("| ", 1);
-		ft_putnbr_fd(tmp->val, 1);
-		ft_putstr_fd("\n", 1);
-		tmp = tmp->next;
+		res[i] = (char *) av[i];
+		i++;
 	}
-}
-
-#include <stdio.h>
-
-int main(int ac, const char **av)
-{
-	check_args(ac, av);
-	printf("It work");
-
-	return (0);
+	return (res);
 }

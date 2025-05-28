@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 14:06:50 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/27 21:05:10 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/28 14:30:35 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	is_formated_end(int ac, const char **av)
 	}
 }
 
-static void	is_formated(int ac, const char **av)
+void	is_formated(int ac, const char **av)
 {
 	int		i;
 
@@ -56,25 +56,52 @@ static void	is_formated(int ac, const char **av)
 	else
 		is_formated_end(ac, av);
 }
-
-void	nb_occurence(char **str, char *to_find)
+#include <stdio.h>
+static void	nb_occurence(char **str, char *to_find)
 {
 	int	i;
 	int	j;
+	int	nb;
 
 	i = 0;
+	nb = 0;
 	while (str[i])
 	{
 		j = 0;
-		while (str[i][j] == to_find[j])
-			i++;
-
+		while (str[i][j] && to_find[j] && str[i][j] == to_find[j])
+		{
+			printf("str[%d][%d] = %c | to_find[%d] = %c\n", i, j, str[i][j], j, to_find[j]);
+			j++;
+		}
+		if (!str[i][j] && !to_find[j])
+			nb++;
 		i++;
 	}
-
+	if (nb > 1)
+		error_message();
 }
 
-static void	had_double(int ac, const char **av)
+static void	had_double_end(int ac, const char **av)
+{
+	int	i;
+	char	**str;
+
+	str = const_to_nonconst(ac, av);
+	if (!str)
+		error_message();
+	i = 1;
+	while (i < ac)
+	{
+		nb_occurence(str, str[i]);
+		if (ft_atol(str[i]) < -2147483648
+				|| ft_atol(str[i]) > 2147483647)
+				error_message();
+		i++;
+	}
+	free(str);
+}
+
+void	had_double(int ac, const char **av)
 {
 	int		i;
 	char	**str;
@@ -87,20 +114,16 @@ static void	had_double(int ac, const char **av)
 		i = 0;
 		while (str[i])
 		{
-
+			nb_occurence(str, str[i]);
+			if (ft_atol(str[i]) < -2147483648
+				|| ft_atol(str[i]) > 2147483647)
+				error_message();
 			i++;
 		}
-
+		while (--i >= 0)
+			free(str[i]);
+		free(str);
 	}
 	else
 		had_double_end(ac, av);
-}
-
-void	check_args(int ac, const char **av)
-{
-	if (ac < 2)
-		error_message();
-	is_formated(ac, av);
-	had_double(ac, av);
-
 }

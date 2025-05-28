@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/27 20:17:57 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/28 10:26:56 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,14 @@ void		ss(t_list *lst_a, t_list *lst_b);
 void		pa(t_list *lst_a, t_list *lst_b);
 void		pb(t_list *lst_a, t_list *lst_b);
 void		rrr(t_list *lst_a, t_list *lst_b);
-void		check_args(int	ac, const char **av);
+void		had_double(int ac, const char **av);
+void		is_formated(int ac, const char **av);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 
 char		**ft_split(const char *s, char c);
+char		**const_to_nonconst(int ac, const char **av);
 
 t_list		*ft_lstnew(int val);
 t_list		*ft_lstlast(t_list *lst);

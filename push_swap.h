@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/26 10:39:00 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/29 12:53:56 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,8 @@ typedef struct s_list
 }	t_list;
 
 int			ft_isdigit(int c);
-int			have_double(int *tab);
 int			ft_atoi(const char *str);
 int			ft_lstsize(t_list *lst);
-int			*args_isstring(const char **av);
-int			check_args(int	ac, const char **av);
-int			*args_isarray(int	ac, const char **av);
-int			*get_number_tab(int	ac, const char **av);
 
 long int	ft_atol(const char *str);
 
@@ -45,6 +40,8 @@ void		rra(t_list *lst_a);
 void		rrb(t_list *lst_b);
 void		rotate(t_list *lst);
 void		rotate_rev(t_list *lst);
+void		free_list(t_list **lst);
+void		free_split(char **split);
 void		ft_lstdelone(t_list *lst);
 void		ft_lstclear(t_list **lst);
 void		ft_putnbr_fd(int n, int fd);
@@ -64,7 +61,13 @@ char		**ft_split(const char *s, char c);
 
 t_list		*ft_lstnew(int val);
 t_list		*ft_lstlast(t_list *lst);
+t_list		*fill_tab(int ac, char **av);
 t_list		*ft_lstchoose(t_list *lst, int nb);
-t_list		*fill_number(int *tab);
+
+int			checker_input(int ac, char **av);
+void		error_message(void);
+void		had_double(int ac, const char **av);
+void		is_formated(int ac, const char **av);
+char		**const_to_nonconst(int ac, const char **av);
 
 #endif

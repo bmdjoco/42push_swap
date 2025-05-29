@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 14:06:50 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/28 14:30:35 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/29 12:58:44 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	is_formated(int ac, const char **av)
 	if (ac == 2)
 	{
 		i = 0;
+		if (!av[1][i])
+			error_message();
 		while (av[1][i])
 		{
 			if (av[1][i] == '-' && ft_isdigit(av[1][i + 1]))
@@ -56,8 +58,8 @@ void	is_formated(int ac, const char **av)
 	else
 		is_formated_end(ac, av);
 }
-#include <stdio.h>
-static void	nb_occurence(char **str, char *to_find)
+
+static void	nb_occurence(char **str, char *to_find, int n)
 {
 	int	i;
 	int	j;
@@ -65,14 +67,11 @@ static void	nb_occurence(char **str, char *to_find)
 
 	i = 0;
 	nb = 0;
-	while (str[i])
+	while (i < n)
 	{
 		j = 0;
 		while (str[i][j] && to_find[j] && str[i][j] == to_find[j])
-		{
-			printf("str[%d][%d] = %c | to_find[%d] = %c\n", i, j, str[i][j], j, to_find[j]);
 			j++;
-		}
 		if (!str[i][j] && !to_find[j])
 			nb++;
 		i++;
@@ -92,7 +91,7 @@ static void	had_double_end(int ac, const char **av)
 	i = 1;
 	while (i < ac)
 	{
-		nb_occurence(str, str[i]);
+		nb_occurence(str, str[i], ac);
 		if (ft_atol(str[i]) < -2147483648
 				|| ft_atol(str[i]) > 2147483647)
 				error_message();
@@ -110,19 +109,17 @@ void	had_double(int ac, const char **av)
 	{
 		str = ft_split(av[1], ' ');
 		if (!str)
-			error_message();;
+			error_message();
 		i = 0;
 		while (str[i])
 		{
-			nb_occurence(str, str[i]);
+			nb_occurence(str, str[i], ac - 1);
 			if (ft_atol(str[i]) < -2147483648
 				|| ft_atol(str[i]) > 2147483647)
 				error_message();
 			i++;
 		}
-		while (--i >= 0)
-			free(str[i]);
-		free(str);
+		free_split(str);
 	}
 	else
 		had_double_end(ac, av);

@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 19:28:54 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/22 13:36:33 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/31 15:49:38 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	new->next = *lst;
-	*lst = new;
+	if (!*lst)
+		*lst = new;
+	else
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }

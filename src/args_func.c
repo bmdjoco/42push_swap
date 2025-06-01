@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:59:51 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/29 13:41:59 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/31 15:08:10 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ void	free_split(char **split)
 	free(split);
 }
 
-t_list	*fill_tab_end(int ac, char **av)
+static t_list	*fill_tab_end(int ac, const char **av)
 {
 	int		i;
-	char	**str;
 	t_list	*lst_a;
 	t_list	*new;
 
@@ -49,14 +48,14 @@ t_list	*fill_tab_end(int ac, char **av)
 	{
 		new = ft_lstnew(ft_atoi(av[i]));
 		if (!new)
-			return(free_list(lst_a), error_message(), NULL);
+			return(free_list(&lst_a), error_message(), NULL);
 		ft_lstadd_back(&lst_a, new);
 		i++;
 	}
 	return (lst_a);
 }
 
-t_list	*fill_tab(int ac, char **av)
+t_list	*fill_tab(int ac, const char **av)
 {
 	t_list	*lst_a;
 	t_list	*new;
@@ -76,7 +75,7 @@ t_list	*fill_tab(int ac, char **av)
 		{
 			new = ft_lstnew(ft_atoi(str[i]));
 			if (!new)
-				return(free_list(lst_a), free_split(str), error_message(), NULL);
+				return(free_list(&lst_a), free_split(str), error_message(), NULL);
 			ft_lstadd_back(&lst_a, new);
 			i++;
 		}

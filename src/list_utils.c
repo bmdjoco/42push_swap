@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:27:49 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/26 10:39:35 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/01 19:28:02 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,21 @@ void	swap(t_list *lst)
 	}
 }
 
-void	push(t_list *src, t_list *dest)
+void	push(t_list **src, t_list **dest)
 {
 	t_list	*tmp;
 	t_list	*new_src;
 
 	if (!src)
 		return ;
-	new_src = ft_lstnew(src->val);
-	ft_lstadd_front(&dest, new_src);
-	tmp = src->next;
-	ft_lstdelone(src);
-	src = tmp;
+	new_src = ft_lstnew((*src)->val);
+	if (!*dest)
+		*dest = new_src;
+	else
+		ft_lstadd_front(dest, new_src);
+	tmp = (*src)->next;
+	free(*src);
+	*src = tmp;
 }
 
 void	rotate(t_list *lst)

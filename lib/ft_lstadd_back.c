@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 19:45:10 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/22 13:36:36 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/05/31 15:50:56 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
 
-	if (!lst || !new)
-		return ;
 	if (!*lst)
 		*lst = new;
 	else

@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/29 12:53:56 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/01 19:27:41 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ void		ft_lstclear(t_list **lst);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
-void		push(t_list *src, t_list *dest);
+void		push(t_list **src, t_list **dest);
 void		rr(t_list *lst_a, t_list *lst_b);
 void		ss(t_list *lst_a, t_list *lst_b);
-void		pa(t_list *lst_a, t_list *lst_b);
-void		pb(t_list *lst_a, t_list *lst_b);
+void		pa(t_list **lst_a, t_list **lst_b);
+void		pb(t_list **lst_a, t_list **lst_b);
 void		rrr(t_list *lst_a, t_list *lst_b);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstadd_front(t_list **lst, t_list *new);
@@ -61,7 +61,7 @@ char		**ft_split(const char *s, char c);
 
 t_list		*ft_lstnew(int val);
 t_list		*ft_lstlast(t_list *lst);
-t_list		*fill_tab(int ac, char **av);
+t_list		*fill_tab(int ac, const char **av);
 t_list		*ft_lstchoose(t_list *lst, int nb);
 
 int			checker_input(int ac, char **av);

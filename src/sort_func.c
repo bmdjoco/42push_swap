@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:28:11 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/26 10:53:24 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/01 19:25:52 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ss(t_list *lst_a, t_list *lst_b)
  *
  * @note Ne fait rien si b est vide.
  */
-void	pa(t_list *lst_a, t_list *lst_b)
+void	pa(t_list **lst_a, t_list **lst_b)
 {
 	push(lst_b, lst_a);
 	ft_putstr_fd("pa\n", 1);
@@ -74,7 +74,7 @@ void	pa(t_list *lst_a, t_list *lst_b)
  *
  * @note Ne fait rien si b est vide.
  */
-void	pb(t_list *lst_a, t_list *lst_b)
+void	pb(t_list **lst_a, t_list **lst_b)
 {
 	push(lst_a, lst_b);
 	ft_putstr_fd("pb\n", 1);

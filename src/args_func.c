@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:59:51 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/31 15:08:10 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/04 14:19:35 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,32 @@ void	free_split(char **split)
 	while (split[i])
 		free(split[i++]);
 	free(split);
+}
+
+int	nb_min(t_list **lst)
+{
+	int		i;
+	int		min;
+	int		min_v;
+	t_list	*tmp;
+
+	if (!*lst)
+		return (-1);
+	i = 0;
+	tmp = *lst;
+	min_v = tmp->val;
+	min = 0;
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+		i++;
+		if(tmp->val < min_v)
+		{
+			min = i;
+			min_v = tmp->val;
+		}
+	}
+	return (min);
 }
 
 static t_list	*fill_tab_end(int ac, const char **av)

@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:27:49 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/01 19:28:02 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/04 16:37:07 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,41 +31,55 @@ void	swap(t_list *lst)
 void	push(t_list **src, t_list **dest)
 {
 	t_list	*tmp;
-	t_list	*new_src;
 
-	if (!src)
+	if (!*src)
 		return ;
-	new_src = ft_lstnew((*src)->val);
+	tmp = *src;
+	*src = tmp->next;
+	tmp->next = NULL;
 	if (!*dest)
-		*dest = new_src;
+		*dest = tmp;
 	else
-		ft_lstadd_front(dest, new_src);
-	tmp = (*src)->next;
-	free(*src);
-	*src = tmp;
+		ft_lstadd_front(dest, tmp);
 }
 
+/**
+ * @brief Décale d’une position vers le haut tous les élements de la pile donne. Le premier élément devient le dernier.
+ *
+ * @param lst Pointeur vers une liste chaînée
+ */
 void	rotate(t_list *lst)
 {
 	t_list	*tmp;
 
 	if (!lst || ft_lstsize(lst) == 1)
 		return ;
-	tmp = ft_lstnew(lst->val);
-	ft_lstadd_back(&lst, tmp);
+	tmp = lst;
+	tmp = ft_lstlast(tmp);
+	tmp->next = ft_lstnew(lst->val);
 	tmp = lst->next;
-	ft_lstdelone(lst);
+	free(lst);
 	lst = tmp;
 }
 
+/**
+ * @brief Décale d’une position vers le bas tous les élements de la pile donne. Le dernier élément devient le premier.
+ *
+ * @param lst_a Pointeur vers une liste chaînée
+ */
 void	rotate_rev(t_list *lst)
 {
 	t_list	*tmp;
+	t_list	*it;
 
 	if (!lst || ft_lstsize(lst) == 1)
 		return ;
-	tmp = ft_lstnew(ft_lstlast(lst)->val);;
-	ft_lstadd_front(&lst, tmp);
 	tmp = ft_lstlast(lst);
-	ft_lstdelone(tmp);
+	ft_lstadd_front(&lst, ft_lstnew(tmp->val));
+	it = lst;
+	while ((it->next)->next)
+		it = it->next;
+	tmp = it->next;
+	it->next = NULL;
+	free(tmp);
 }

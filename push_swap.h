@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/01 19:27:41 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/04 14:06:44 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_list
 int			ft_isdigit(int c);
 int			ft_atoi(const char *str);
 int			ft_lstsize(t_list *lst);
+int			nb_min(t_list **lst);
 
 long int	ft_atol(const char *str);
 

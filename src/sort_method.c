@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 09:43:26 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/04 14:26:19 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/09 19:47:33 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	sort_for_tree(t_list *lst_a)
 	if (lst_a->next->val < lst_a->val)
 		sa(lst_a);
 	if (ft_lstlast(lst_a)->val < lst_a->val)
-		rra(lst_a);
+		rra(&lst_a);
 	if (ft_lstlast(lst_a)->val < lst_a->next->val)
 	{
 		pb(&lst_a, &lst_b);

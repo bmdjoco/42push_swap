@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:43:48 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/26 10:35:06 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/09 19:46:39 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	rr(t_list *lst_a, t_list *lst_b)
  *
  * @param lst_a Pointeur vers la liste chaînée représentant la pile A
  */
-void	rra(t_list *lst_a)
+void	rra(t_list **lst_a)
 {
 	rotate_rev(lst_a);
 	ft_putstr_fd("rra\n", 1);
@@ -62,7 +62,7 @@ void	rra(t_list *lst_a)
  *
  * @param lst_b Pointeur vers la liste chaînée représentant la pile B
  */
-void	rrb(t_list *lst_b)
+void	rrb(t_list **lst_b)
 {
 	rotate_rev(lst_b);
 	ft_putstr_fd("rrb\n", 1);

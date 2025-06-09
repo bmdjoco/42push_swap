@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/04 14:06:44 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/09 19:47:20 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ void		sb(t_list *lst_b);
 void		swap(t_list *lst);
 void		ra(t_list *lst_a);
 void		rb(t_list *lst_b);
-void		rra(t_list *lst_a);
-void		rrb(t_list *lst_b);
+void		rra(t_list **lst_a);
+void		rrb(t_list **lst_b);
 void		rotate(t_list *lst);
-void		rotate_rev(t_list *lst);
+void		rotate_rev(t_list **lst);
 void		free_list(t_list **lst);
 void		free_split(char **split);
 void		ft_lstdelone(t_list *lst);
@@ -53,7 +53,7 @@ void		rr(t_list *lst_a, t_list *lst_b);
 void		ss(t_list *lst_a, t_list *lst_b);
 void		pa(t_list **lst_a, t_list **lst_b);
 void		pb(t_list **lst_a, t_list **lst_b);
-void		rrr(t_list *lst_a, t_list *lst_b);
+void		rrr(t_list **lst_a, t_list **lst_b);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 void		ft_lstiter(t_list *lst, void (*f)(void *));

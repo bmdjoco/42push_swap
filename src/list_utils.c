@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:27:49 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/04 16:37:07 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/09 19:45:57 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,19 +67,20 @@ void	rotate(t_list *lst)
  *
  * @param lst_a Pointeur vers une liste chaînée
  */
-void	rotate_rev(t_list *lst)
+void	rotate_rev(t_list **lst)
 {
-	t_list	*tmp;
-	t_list	*it;
+	t_list	*prev = NULL;
+	t_list	*last = *lst;
 
-	if (!lst || ft_lstsize(lst) == 1)
+	if (!lst || !*lst || !(*lst)->next)
 		return ;
-	tmp = ft_lstlast(lst);
-	ft_lstadd_front(&lst, ft_lstnew(tmp->val));
-	it = lst;
-	while ((it->next)->next)
-		it = it->next;
-	tmp = it->next;
-	it->next = NULL;
-	free(tmp);
+	while (last->next)
+	{
+		prev = last;
+		last = last->next;
+	}
+	prev->next = NULL;
+	last->next = *lst;
+	*lst = last;
 }
+

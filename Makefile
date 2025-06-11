@@ -6,7 +6,7 @@
 #    By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 10:50:33 by bdjoco            #+#    #+#              #
-#    Updated: 2025/05/29 11:42:22 by bdjoco           ###   ########.fr        #
+#    Updated: 2025/06/07 12:51:17 by bdjoco           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ AR = ar rcs
 RM = rm -f
 
 all : $(NAME)
-	@echo "Tout est compilé ​👍​"
+	@echo "\e[1m\e[32mTout est compilé\e[0m ​👍​"
 
 $(NAME) : $(OBJ)
 	@$(AR) $(NAME) $(OBJ)
@@ -54,11 +54,11 @@ $(NAME) : $(OBJ)
 
 clean :
 	@$(RM) $(OBJ)
-	@echo "Nettoyage des fichiers source terminé 🧹"
+	@echo "\e[32mNettoyage des \e[0m\e[1mfichiers source\e[0m \e[32mterminé\e[0m 🧹"
 
 fclean : clean
 	@$(RM) $(NAME)
-	@echo "Nettoyage de libftprintf.a terminé 🧹"
+	@echo "\e[32mNettoyage de \e[0m\e[1mlibftprintf.a\e[0m \e[32mterminé\e[0m 🧹"
 
 re : fclean all
 

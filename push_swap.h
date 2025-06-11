@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/09 19:47:20 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/11 13:52:48 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			nb_min(t_list **lst);
 
 long int	ft_atol(const char *str);
 
-void		sort(t_list	*lst_a);
+void		sort(t_list	**lst_a);
 void		sa(t_list *lst_a);
 void		sb(t_list *lst_b);
 void		swap(t_list *lst);
@@ -62,8 +62,8 @@ char		**ft_split(const char *s, char c);
 
 t_list		*ft_lstnew(int val);
 t_list		*ft_lstlast(t_list *lst);
-t_list		*fill_tab(int ac, const char **av);
 t_list		*ft_lstchoose(t_list *lst, int nb);
+t_list		**fill_tab(int ac, const char **av);
 
 int			checker_input(int ac, char **av);
 void		error_message(void);

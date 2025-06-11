@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:27:49 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/09 19:45:57 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/11 13:17:19 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,13 @@ void	rotate(t_list *lst)
  */
 void	rotate_rev(t_list **lst)
 {
-	t_list	*prev = NULL;
-	t_list	*last = *lst;
+	t_list	*prev;
+	t_list	*last;
 
 	if (!lst || !*lst || !(*lst)->next)
 		return ;
+	prev = NULL;
+	last = *lst;
 	while (last->next)
 	{
 		prev = last;

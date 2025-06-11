@@ -6,22 +6,27 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:59:51 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/04 14:19:35 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/11 14:08:49 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
 
 void	free_list(t_list **lst)
 {
 	t_list	*tmp;
+	int		i;
 
+	i = 0;
 	while (*lst)
 	{
 		tmp = (*lst)->next;
 		free(*lst);
 		*lst = tmp;
+		i++;
 	}
+	free(lst);
 }
 
 void	free_split(char **split)
@@ -60,49 +65,55 @@ int	nb_min(t_list **lst)
 	return (min);
 }
 
-static t_list	*fill_tab_end(int ac, const char **av)
+static t_list	**fill_tab_end(int ac, const char **av)
 {
 	int		i;
-	t_list	*lst_a;
+	t_list	**lst_a;
 	t_list	*new;
 
-	lst_a = ft_lstnew(ft_atoi(av[1]));
+	lst_a = malloc(sizeof(t_list *));
 	if (!lst_a)
+		error_message();
+	*lst_a = ft_lstnew(ft_atoi(av[1]));
+	if (!*lst_a)
 		error_message();
 	i = 2;
 	while (i < ac)
 	{
 		new = ft_lstnew(ft_atoi(av[i]));
 		if (!new)
-			return(free_list(&lst_a), error_message(), NULL);
-		ft_lstadd_back(&lst_a, new);
+			return(free_list(lst_a), error_message(), NULL);
+		ft_lstadd_back(lst_a, new);
 		i++;
 	}
 	return (lst_a);
 }
 
-t_list	*fill_tab(int ac, const char **av)
+t_list	**fill_tab(int ac, const char **av)
 {
-	t_list	*lst_a;
+	t_list	**lst_a;
 	t_list	*new;
 	char	**str;
 	int		i;
 
+	lst_a = malloc(sizeof(t_list *));
+	if (!lst_a)
+		error_message();
 	if (ac == 2)
 	{
 		str = ft_split(av[1], ' ');
 		if (!str)
 			error_message();
-		lst_a = ft_lstnew(ft_atoi(str[0]));
-		if (!lst_a)
+		*lst_a = ft_lstnew(ft_atoi(str[0]));
+		if (!*lst_a)
 			return(free_split(str), error_message(), NULL);
 		i = 1;
 		while (str[i])
 		{
 			new = ft_lstnew(ft_atoi(str[i]));
 			if (!new)
-				return(free_list(&lst_a), free_split(str), error_message(), NULL);
-			ft_lstadd_back(&lst_a, new);
+				return(free_list(lst_a), free_split(str), error_message(), NULL);
+			ft_lstadd_back(lst_a, new);
 			i++;
 		}
 		return (free_split(str), lst_a);

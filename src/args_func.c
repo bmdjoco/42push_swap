@@ -6,12 +6,11 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:59:51 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/11 14:08:49 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/12 17:04:26 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
 void	free_list(t_list **lst)
 {
@@ -96,11 +95,11 @@ t_list	**fill_tab(int ac, const char **av)
 	char	**str;
 	int		i;
 
-	lst_a = malloc(sizeof(t_list *));
-	if (!lst_a)
-		error_message();
 	if (ac == 2)
 	{
+		lst_a = malloc(sizeof(t_list *));
+		if (!lst_a)
+			error_message();
 		str = ft_split(av[1], ' ');
 		if (!str)
 			error_message();

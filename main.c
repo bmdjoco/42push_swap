@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 10:33:36 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/11 14:11:53 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/12 19:25:14 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ void	print_lst(t_list **lst)
 
 	i = 0;
 	tmp = *lst;
-	printf("size plst %d\n", ft_lstsize(*lst));
+	printf("List\n");
 	while (tmp)
 	{
-		printf("%0.2d | %d\n", i, tmp->val);
+		printf("%d | %d\n", i, tmp->val);
 		tmp = tmp->next;
+		i++;
 	}
 }
 
@@ -37,9 +38,9 @@ int main(int ac, const char **av)
 	is_formated(ac, av);
 	had_double(ac, av);
 	lst_a = fill_tab(ac, av);
-	print_lst(lst_a);
+	//print_lst(lst_a);
 	sort(lst_a);
-	print_lst(lst_a);
+	//print_lst(lst_a);
 	free_list(lst_a);
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:27:49 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/11 13:17:19 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/12 16:46:32 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,18 @@ void	push(t_list **src, t_list **dest)
  *
  * @param lst Pointeur vers une liste chaînée
  */
-void	rotate(t_list *lst)
+void	rotate(t_list **lst)
 {
 	t_list	*tmp;
 
-	if (!lst || ft_lstsize(lst) == 1)
+	if (!lst || ft_lstsize(*lst) == 1)
 		return ;
-	tmp = lst;
+	tmp = *lst;
 	tmp = ft_lstlast(tmp);
-	tmp->next = ft_lstnew(lst->val);
-	tmp = lst->next;
-	free(lst);
-	lst = tmp;
+	tmp->next = ft_lstnew((*lst)->val);
+	tmp = (*lst)->next;
+	free(*lst);
+	*lst = tmp;
 }
 
 /**

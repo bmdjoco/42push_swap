@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 09:43:26 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/12 19:34:17 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/13 13:33:24 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,4 +113,6 @@ void	sort(t_list	**lst_a)
 		sort_for_four(lst_a);
 	else if (l == 5)
 		sort_for_five(lst_a);
+	else if (l >= 6)
+		sort_algo(lst_a);
 }

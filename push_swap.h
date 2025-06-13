@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/12 19:23:00 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/13 13:56:58 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void		free_list(t_list **lst);
 void		free_split(char **split);
 void		ft_lstdelone(t_list *lst);
 void		ft_lstclear(t_list **lst);
+void		sort_algo(t_list **lst_a);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);

@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:59:51 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/12 17:04:26 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/13 13:30:46 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,8 @@ t_list	**fill_tab(int ac, const char **av)
 	if (ac == 2)
 	{
 		lst_a = malloc(sizeof(t_list *));
-		if (!lst_a)
-			error_message();
 		str = ft_split(av[1], ' ');
-		if (!str)
+		if (!lst_a || !str)
 			error_message();
 		*lst_a = ft_lstnew(ft_atoi(str[0]));
 		if (!*lst_a)

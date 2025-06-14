@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/13 13:56:58 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/14 15:22:09 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 # include <unistd.h>
 # include <ctype.h>
 # include <string.h>
+# include <limits.h>
 
 typedef struct s_list
 {
 	int			val;
+	int			index;
 	struct s_list	*next;
 }	t_list;
 
@@ -57,6 +59,7 @@ void		ss(t_list *lst_a, t_list *lst_b);
 void		pa(t_list **lst_a, t_list **lst_b);
 void		pb(t_list **lst_a, t_list **lst_b);
 void		rrr(t_list **lst_a, t_list **lst_b);
+void		set_index(t_list *head, int link_size);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 void		ft_lstiter(t_list *lst, void (*f)(void *));

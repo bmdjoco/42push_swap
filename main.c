@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 10:33:36 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/12 19:25:14 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/14 15:27:40 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ int main(int ac, const char **av)
 	is_formated(ac, av);
 	had_double(ac, av);
 	lst_a = fill_tab(ac, av);
-	//print_lst(lst_a);
+	set_index(*lst_a, ft_lstsize(*lst_a));
+	print_lst(lst_a);
 	sort(lst_a);
-	//print_lst(lst_a);
+	print_lst(lst_a);
 	free_list(lst_a);
 	return 0;
 }

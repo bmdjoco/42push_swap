@@ -6,7 +6,7 @@
 #    By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 10:50:33 by bdjoco            #+#    #+#              #
-#    Updated: 2025/06/07 12:51:17 by bdjoco           ###   ########.fr        #
+#    Updated: 2025/06/16 13:51:49 by bdjoco           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,15 +25,16 @@ SRC = ./lib/ft_atoi.c \
 	./lib/ft_putnbr_fd.c \
 	./lib/ft_putstr_fd.c \
 	./lib/ft_split.c \
+	./src/instructions/push.c \
+	./src/instructions/rotate_rev.c \
+	./src/instructions/rotate.c \
+	./src/instructions/swap.c \
 	./src/args_func.c \
 	./src/checker_bis.c \
 	./src/checker.c \
 	./src/error_msg.c \
-	./src/list_utils.c \
-	./src/sort_func_bis.c \
-	./src/sort_func_last.c \
-	./src/sort_func.c \
 	./src/sort_method.c \
+	./src/sort_method_bis.c \
 	./main.c
 
 OBJ = $(SRC:.c=.o)

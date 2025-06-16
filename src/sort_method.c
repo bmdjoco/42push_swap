@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 09:43:26 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/13 13:33:24 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/16 13:28:12 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ static void	sort_for_two(t_list **lst_a)
  */
 static void	sort_for_tree(t_list **lst_a)
 {
-	t_list **lst_b;
+	t_list	**lst_b;
 
 	lst_b = malloc(sizeof(t_list *));
 	if (!lst_b)
-		return(free_list(lst_a), error_message());
+		return (free_list(lst_a), error_message());
 	*lst_b = NULL;
 	if ((*lst_a)->val > (*lst_a)->next->val
 		&& (*lst_a)->next->val < ft_lstlast(*lst_a)->val)
@@ -74,12 +74,12 @@ static void	sort_for_four_end(t_list **lst_a, t_list **lst_b, int emp)
  */
 void	sort_for_four(t_list **lst_a)
 {
-	int	emp;
-	t_list **lst_b;
+	int		emp;
+	t_list	**lst_b;
 
 	lst_b = malloc(sizeof(t_list *));
 	if (!lst_b)
-		return(free_list(lst_a), error_message());
+		return (free_list(lst_a), error_message());
 	*lst_b = NULL;
 	emp = nb_min(lst_a);
 	if (emp == 0)

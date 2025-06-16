@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/14 15:22:09 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/16 13:23:42 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 typedef struct s_list
 {
-	int			val;
-	int			index;
+	int				val;
+	int				index;
 	struct s_list	*next;
 }	t_list;
 

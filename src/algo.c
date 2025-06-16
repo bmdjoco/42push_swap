@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 19:35:55 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/14 15:24:12 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/16 13:46:28 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,25 +51,32 @@ static int	find_bits(int max_nbr)
 	return (max_bits);
 }
 
+static void	inititalisation(t_list **lst_a, t_list **lst_b
+	, int *b_nbr, int *m_bits)
+{
+	if (!lst_b)
+		return (free_list(lst_a), error_message());
+	*lst_b = NULL;
+	*b_nbr = find_max(*lst_a);
+	*m_bits = find_bits(*b_nbr);
+}
+
 /**
- * @brief Trier les elements de la liste donne dans l'ordre croissant en utilisant le "mechanical turc algorithm"
+ * @brief Trier les elements de la liste donne dans l'ordre croissant
+ * en utilisant radix
  *
  * @param lst_a Pointeur vers la liste chaînée représentant la pile A
  */
 void	sort_algo(t_list **lst_a)
 {
-	int	biggest_nbr;
-	int	max_bits;
-	int	i;
-	int	j;
-	t_list **lst_b;
+	int		biggest_nbr;
+	int		max_bits;
+	int		i;
+	int		j;
+	t_list	**lst_b;
 
 	lst_b = malloc(sizeof(t_list *));
-	if (!lst_b)
-		return(free_list(lst_a), error_message());
-	*lst_b = NULL;
-	biggest_nbr = find_max(*lst_a);
-	max_bits = find_bits(biggest_nbr);
+	inititalisation(lst_a, lst_b, &biggest_nbr, &max_bits);
 	i = 0;
 	while (i < max_bits)
 	{
@@ -88,5 +95,3 @@ void	sort_algo(t_list **lst_a)
 	}
 	free_list(lst_b);
 }
-
-

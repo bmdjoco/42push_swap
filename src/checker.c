@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 14:06:50 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/05/29 12:58:44 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/16 13:26:09 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	is_formated_end(int ac, const char **av)
 		{
 			if (av[i][j] == '-' && ft_isdigit(av[i][j + 1]))
 				j++;
-			else if(!ft_isdigit(av[i][j]))
+			else if (!ft_isdigit(av[i][j]))
 				error_message();
 			while (ft_isdigit(av[i][j]))
 				j++;
@@ -36,7 +36,7 @@ static void	is_formated_end(int ac, const char **av)
 
 void	is_formated(int ac, const char **av)
 {
-	int		i;
+	int	i;
 
 	if (ac == 2)
 	{
@@ -47,7 +47,7 @@ void	is_formated(int ac, const char **av)
 		{
 			if (av[1][i] == '-' && ft_isdigit(av[1][i + 1]))
 				i++;
-			else if(!ft_isdigit(av[1][i]))
+			else if (!ft_isdigit(av[1][i]))
 				error_message();
 			while (ft_isdigit(av[1][i]))
 				i++;
@@ -82,7 +82,7 @@ static void	nb_occurence(char **str, char *to_find, int n)
 
 static void	had_double_end(int ac, const char **av)
 {
-	int	i;
+	int		i;
 	char	**str;
 
 	str = const_to_nonconst(ac, av);
@@ -93,8 +93,8 @@ static void	had_double_end(int ac, const char **av)
 	{
 		nb_occurence(str, str[i], ac);
 		if (ft_atol(str[i]) < -2147483648
-				|| ft_atol(str[i]) > 2147483647)
-				error_message();
+			|| ft_atol(str[i]) > 2147483647)
+			error_message();
 		i++;
 	}
 	free(str);

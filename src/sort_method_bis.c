@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 09:43:26 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/12 19:23:28 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/16 13:28:18 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sort_for_five(t_list **lst_a)
 
 	lst_b = malloc(sizeof(t_list *));
 	if (!lst_b)
-		return(free_list(lst_a), error_message());
+		return (free_list(lst_a), error_message());
 	*lst_b = NULL;
 	emp = nb_min(lst_a);
 	i = 0;

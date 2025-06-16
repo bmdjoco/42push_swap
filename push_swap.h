@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/16 17:21:05 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/16 17:27:42 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_list
 	int				val;
 	struct s_list	*next;
 }	t_list;
-
 
 int			ft_isdigit(int c);
 int			nb_min(t_list **lst);
@@ -53,7 +52,6 @@ void		list_tab(t_list **lst_a);
 void		free_split(char **split);
 void		ft_lstdelone(t_list *lst);
 void		ft_lstclear(t_list **lst);
-void		sort_algo(t_list **lst_a);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);

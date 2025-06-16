@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 09:43:26 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/16 17:08:37 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/16 17:28:21 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	sort_for_four(t_list **lst_a)
  */
 void	sort(t_list	**lst_a)
 {
-	int	l;
+	int		l;
 	t_list	**lst_b;
 
 	l = ft_lstsize(*lst_a);

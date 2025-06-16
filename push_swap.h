@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/16 13:23:42 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/16 17:21:05 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,19 @@
 typedef struct s_list
 {
 	int				val;
-	int				index;
 	struct s_list	*next;
 }	t_list;
 
+
 int			ft_isdigit(int c);
-int			ft_atoi(const char *str);
-int			ft_lstsize(t_list *lst);
 int			nb_min(t_list **lst);
+int			ft_lstsize(t_list *lst);
+int			ft_atoi(const char *str);
+int			get_chunk_count(int size);
+int			find_max_pos(t_list *lst);
+int			*sortint(int *tab, int size);
+int			exists_in_range(t_list *lst, int min, int max);
+int			find_pos_in_range(t_list *lst, int min, int max);
 
 long int	ft_atol(const char *str);
 
@@ -42,8 +47,9 @@ void		rb(t_list **lst_b);
 void		rra(t_list **lst_a);
 void		rrb(t_list **lst_b);
 void		rotate(t_list **lst);
-void		rotate_rev(t_list **lst);
 void		free_list(t_list **lst);
+void		rotate_rev(t_list **lst);
+void		list_tab(t_list **lst_a);
 void		free_split(char **split);
 void		ft_lstdelone(t_list *lst);
 void		ft_lstclear(t_list **lst);
@@ -59,10 +65,13 @@ void		ss(t_list *lst_a, t_list *lst_b);
 void		pa(t_list **lst_a, t_list **lst_b);
 void		pb(t_list **lst_a, t_list **lst_b);
 void		rrr(t_list **lst_a, t_list **lst_b);
-void		set_index(t_list *head, int link_size);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 void		ft_lstiter(t_list *lst, void (*f)(void *));
+void		push_back(t_list **lst_a, t_list **lst_b);
+void		rotate_to_min(t_list **lst_a, int pos, int max);
+void		sort_chunk(t_list **lst_a, t_list **lst_b);
+void		push_chunk(t_list **lst_a, t_list **lst_b, int min, int max);
 
 char		**ft_split(const char *s, char c);
 

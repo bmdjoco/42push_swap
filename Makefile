@@ -6,7 +6,7 @@
 #    By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 10:50:33 by bdjoco            #+#    #+#              #
-#    Updated: 2025/06/16 13:51:49 by bdjoco           ###   ########.fr        #
+#    Updated: 2025/06/16 17:15:08 by bdjoco           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ SRC = ./lib/ft_atoi.c \
 	./src/instructions/rotate_rev.c \
 	./src/instructions/rotate.c \
 	./src/instructions/swap.c \
+	./src/chunk.c \
+	./src/chunk_utils.c \
 	./src/args_func.c \
 	./src/checker_bis.c \
 	./src/checker.c \
@@ -39,19 +41,18 @@ SRC = ./lib/ft_atoi.c \
 
 OBJ = $(SRC:.c=.o)
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 AR = ar rcs
 RM = rm -f
+
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I .
 
 all : $(NAME)
 	@echo "\e[1m\e[32mTout est compilé\e[0m ​👍​"
 
 $(NAME) : $(OBJ)
-	@$(AR) $(NAME) $(OBJ)
-	@chmod 777 push_swap
-
-%.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean :
 	@$(RM) $(OBJ)

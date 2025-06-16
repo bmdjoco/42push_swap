@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 19:21:56 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/14 14:59:15 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/16 17:12:30 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_list	*ft_lstnew(int val)
 	if (!lst)
 		return (NULL);
 	lst->val = val;
-	lst->index = 0;
 	lst->next = NULL;
 	return (lst);
 }

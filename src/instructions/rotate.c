@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 13:13:32 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/16 13:30:25 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/16 16:58:56 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	rotate(t_list **lst)
 	tmp = *lst;
 	tmp = ft_lstlast(tmp);
 	tmp->next = ft_lstnew((*lst)->val);
-	tmp->next->index = (*lst)->index;
 	tmp = (*lst)->next;
 	free(*lst);
 	*lst = tmp;

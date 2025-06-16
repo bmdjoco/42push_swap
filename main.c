@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 10:33:36 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/16 13:49:15 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/16 17:01:38 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	main(int ac, const char **av)
 	is_formated(ac, av);
 	had_double(ac, av);
 	lst_a = fill_tab(ac, av);
-	set_index(*lst_a, ft_lstsize(*lst_a));
 	sort(lst_a);
 	free_list(lst_a);
 	return (0);

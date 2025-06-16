@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 09:43:26 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/16 13:28:12 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/16 17:08:37 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void	sort_for_four(t_list **lst_a)
 void	sort(t_list	**lst_a)
 {
 	int	l;
+	t_list	**lst_b;
 
 	l = ft_lstsize(*lst_a);
 	if (l == 2)
@@ -114,5 +115,13 @@ void	sort(t_list	**lst_a)
 	else if (l == 5)
 		sort_for_five(lst_a);
 	else if (l >= 6)
-		sort_algo(lst_a);
+	{
+		lst_b = malloc(sizeof(t_list *));
+		if (!lst_b)
+			return (free_list(lst_a), error_message());
+		*lst_b = NULL;
+		list_tab(lst_a);
+		sort_chunk(lst_a, lst_b);
+		free_list(lst_b);
+	}
 }

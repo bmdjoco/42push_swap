@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 17:01:21 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/16 17:18:03 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/17 13:47:20 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	list_tab(t_list **lst_a)
 
 int	get_chunk_count(int size)
 {
+	if (size <= 20)
+		return (1);
 	if (size <= 100)
 		return (5);
 	else if (size <= 200)

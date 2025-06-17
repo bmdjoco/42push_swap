@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 09:43:26 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/16 17:28:21 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/17 13:32:34 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,9 +112,7 @@ void	sort(t_list	**lst_a)
 		sort_for_tree(lst_a);
 	else if (l == 4)
 		sort_for_four(lst_a);
-	else if (l == 5)
-		sort_for_five(lst_a);
-	else if (l >= 6)
+	else if (l >= 5)
 	{
 		lst_b = malloc(sizeof(t_list *));
 		if (!lst_b)

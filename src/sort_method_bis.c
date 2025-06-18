@@ -6,13 +6,52 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 09:43:26 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/17 13:32:14 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/18 13:51:11 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_chunk(t_list **lst_a, t_list **lst_b)
+int	get_min_index(t_list *lst)
+{
+	int	index;
+	int	min;
+	int	i;
+
+	index = 0;
+	min = lst->val;
+	i = 0;
+	while (lst)
+	{
+		if (lst->val < min)
+		{
+			min = lst->val;
+			index = i;
+		}
+		i++;
+		lst = lst->next;
+	}
+	return (index);
+}
+
+void	short_chunk(t_list **lst_a, t_list **lst_b)
+{
+	int	index;
+	int	size;
+
+	while (ft_lstsize(*lst_a) > 3)
+	{
+		index = get_min_index(*lst_a);
+		size = ft_lstsize(*lst_a);
+		rotate_to_min(lst_a, get_min_index(*lst_a), size);
+		pb(lst_a, lst_b);
+	}
+	sort_for_tree(lst_a);
+	while (*lst_b)
+		pa(lst_a, lst_b);
+}
+
+void	big_chunk(t_list **lst_a, t_list **lst_b)
 {
 	int	size;
 	int	chunk_size;
@@ -55,4 +94,15 @@ void	push_chunk(t_list **lst_a, t_list **lst_b, int min, int max)
 		else
 			pb(lst_a, lst_b);
 	}
+}
+
+void	sort_chunk(t_list **lst_a, t_list **lst_b)
+{
+	int	size;
+
+	size = ft_lstsize(*lst_a);
+	if (size <= 20)
+		short_chunk(lst_a, lst_b);
+	else
+		big_chunk(lst_a, lst_b);
 }

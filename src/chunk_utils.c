@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 17:01:21 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/17 13:47:20 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/18 13:53:54 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,20 @@ void	list_tab(t_list **lst_a)
 
 int	get_chunk_count(int size)
 {
-	if (size <= 20)
-		return (1);
 	if (size <= 100)
 		return (5);
 	else if (size <= 200)
-		return (8);
+		return (6);
 	else if (size <= 300)
-		return (12);
+		return (8);
 	else if (size <= 400)
-		return (15);
+		return (10);
+	else if (size <= 500)
+		return (11);
+	else if (size <= 1000)
+		return (13);
 	else
-		return (20);
+		return (18);
 }
 
 static void	swapint(int *a, int *b)

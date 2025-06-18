@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 09:43:26 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/17 13:32:34 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/18 12:50:46 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	sort_for_two(t_list **lst_a)
  *
  * @param lst_a Pointeur vers la liste chaînée représentant la pile A
  */
-static void	sort_for_tree(t_list **lst_a)
+void	sort_for_tree(t_list **lst_a)
 {
 	t_list	**lst_b;
 

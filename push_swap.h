@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/17 13:32:20 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/06/18 12:48:22 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void		ft_lstclear(t_list **lst);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
+void		sort_for_tree(t_list **lst_a);
 void		sort_for_four(t_list **lst_a);
 void		push(t_list **src, t_list **dest);
 void		rr(t_list **lst_a, t_list **lst_b);

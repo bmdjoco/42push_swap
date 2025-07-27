@@ -6,12 +6,13 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 17:01:21 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/23 13:21:06 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/07/27 15:19:56 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+/* a corriger NULL error */
 void	list_tab(t_list **lst_a)
 {
 	int		size;
@@ -20,14 +21,10 @@ void	list_tab(t_list **lst_a)
 	t_list	*tmp;
 
 	tab = malloc(sizeof(int) * (size = ft_lstsize(*lst_a)));
+	if (!tab)
+		return (free_list(lst_a), error_message());
 	tmp = *lst_a;
-	i = 0;
-	while (tmp)
-	{
-		tab[i] = tmp->val;
-		tmp = tmp->next;
-		i++;
-	}
+	fill_int_tab(tmp, tab);
 	tab = sortint(tab, size);
 	tmp = *lst_a;
 	while (tmp)

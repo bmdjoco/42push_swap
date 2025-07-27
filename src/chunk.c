@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 16:57:12 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/16 16:59:23 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/07/27 15:19:24 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,17 @@ int	find_pos_in_range(t_list *lst, int min, int max)
 		i++;
 	}
 	return (0);
+}
+
+void	fill_int_tab(t_list	*tmp, int *tab)
+{
+	int	i;
+
+	i = 0;
+	while (tmp)
+	{
+		tab[i] = tmp->val;
+		tmp = tmp->next;
+		i++;
+	}
 }

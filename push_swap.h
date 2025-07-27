@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 15:09:41 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/18 12:48:22 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/07/27 15:19:41 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void		ss(t_list *lst_a, t_list *lst_b);
 void		pa(t_list **lst_a, t_list **lst_b);
 void		pb(t_list **lst_a, t_list **lst_b);
 void		rrr(t_list **lst_a, t_list **lst_b);
+void		fill_int_tab(t_list	*tmp, int *tab);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 void		ft_lstiter(t_list *lst, void (*f)(void *));

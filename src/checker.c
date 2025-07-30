@@ -6,11 +6,12 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 14:06:50 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/07/27 15:20:21 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/07/31 01:53:03 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
 
 static void	is_formated_end(int ac, const char **av)
 {
@@ -62,9 +63,15 @@ void	is_formated(int ac, const char **av)
 static void	nb_occurence(char **str, char *to_find)
 {
 	int	i;
+	int	j;
 	int	nb;
 
 	i = 0;
+	j = -1;
+	while (str[0][++j])
+		if (!(str[0][j] >= '0' && str[0][j] <= '9'))
+			i = 1;
+	j = i;
 	nb = 0;
 	while (str[i])
 	{
@@ -72,6 +79,8 @@ static void	nb_occurence(char **str, char *to_find)
 			nb++;
 		i++;
 	}
+	if (j == 1)
+		free(str);
 	if (nb > 1)
 		error_message();
 }
@@ -90,7 +99,7 @@ static void	had_double_end(int ac, const char **av)
 		nb_occurence(str, str[i]);
 		if (ft_atol(str[i]) < -2147483648
 			|| ft_atol(str[i]) > 2147483647)
-			error_message();
+			return (free(str), error_message());
 		i++;
 	}
 	free(str);
@@ -112,7 +121,7 @@ void	had_double(int ac, const char **av)
 			nb_occurence(str, str[i]);
 			if (ft_atol(str[i]) < -2147483648
 				|| ft_atol(str[i]) > 2147483647)
-				error_message();
+				return (free_split(str), error_message());
 			i++;
 		}
 		free_split(str);

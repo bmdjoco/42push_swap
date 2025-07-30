@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 09:43:26 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/06/18 13:51:11 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/07/30 22:48:18 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	short_chunk(t_list **lst_a, t_list **lst_b)
 	int	index;
 	int	size;
 
+	(void) index;
 	while (ft_lstsize(*lst_a) > 3)
 	{
 		index = get_min_index(*lst_a);

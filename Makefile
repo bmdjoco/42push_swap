@@ -6,7 +6,7 @@
 #    By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 10:50:33 by bdjoco            #+#    #+#              #
-#    Updated: 2025/07/30 22:46:40 by bdjoco           ###   ########.fr        #
+#    Updated: 2025/07/31 16:42:07 by bdjoco           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ fclean : clean
 
 re : fclean all
 
-test : all clean
-	@echo "On cook   ​🔱​"
+# 	test : all clean
+# 		@echo "On cook   ​🔱​"
 
 .PHONY: all clean fclean re

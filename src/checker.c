@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 14:06:50 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/07/31 14:09:01 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/07/31 16:40:09 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	is_formated(int ac, const char **av)
 		is_formated_end(ac, av);
 }
 
-static void	nb_occurence(char **str, char *to_find)
+static int	nb_occurence(char **str, char *to_find)
 {
 	int	i;
 	int	j;
@@ -79,10 +79,9 @@ static void	nb_occurence(char **str, char *to_find)
 			nb++;
 		i++;
 	}
-	if (j == 1)
-		free(str);
 	if (nb > 1)
-		error_message();
+		return (0);
+	return (1);
 }
 
 static void	had_double_end(int ac, const char **av)
@@ -96,9 +95,9 @@ static void	had_double_end(int ac, const char **av)
 	i = 1;
 	while (str[i])
 	{
-		nb_occurence(str, str[i]);
 		if (ft_atol(str[i]) < -2147483648
-			|| ft_atol(str[i]) > 2147483647)
+			|| ft_atol(str[i]) > 2147483647
+			|| !nb_occurence(str, str[i]))
 			return (free(str), error_message());
 		i++;
 	}
@@ -118,9 +117,9 @@ void	had_double(int ac, const char **av)
 		i = 0;
 		while (str[i])
 		{
-			nb_occurence(str, str[i]);
 			if (ft_atol(str[i]) < -2147483648
-				|| ft_atol(str[i]) > 2147483647)
+				|| ft_atol(str[i]) > 2147483647
+				|| !nb_occurence(str, str[i]))
 				return (free_split(str), error_message());
 			i++;
 		}

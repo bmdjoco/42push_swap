@@ -6,7 +6,7 @@
 /*   By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 14:06:50 by bdjoco            #+#    #+#             */
-/*   Updated: 2025/07/31 01:53:03 by bdjoco           ###   ########.fr       */
+/*   Updated: 2025/07/31 14:09:01 by bdjoco           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static void	had_double_end(int ac, const char **av)
 	if (!str)
 		error_message();
 	i = 1;
-	while (i < ac)
+	while (str[i])
 	{
 		nb_occurence(str, str[i]);
 		if (ft_atol(str[i]) < -2147483648

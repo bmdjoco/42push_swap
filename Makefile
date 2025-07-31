@@ -6,7 +6,7 @@
 #    By: bdjoco <bdjoco@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 10:50:33 by bdjoco            #+#    #+#              #
-#    Updated: 2025/07/31 16:42:07 by bdjoco           ###   ########.fr        #
+#    Updated: 2025/07/31 16:43:54 by bdjoco           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,8 +63,5 @@ fclean : clean
 	@echo "\e[32mNettoyage de \e[0m\e[1mlibftprintf.a\e[0m \e[32mterminé\e[0m 🧹"
 
 re : fclean all
-
-# 	test : all clean
-# 		@echo "On cook   ​🔱​"
 
 .PHONY: all clean fclean re
